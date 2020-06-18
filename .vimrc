@@ -127,4 +127,10 @@ let g:SignatureMap = {
         \ }
 let g:undotree_DiffAutoOpen = 0
 map L :UndotreeToggle<CR>
-
+"< F5> 编译和运行C++
+map <F5> :call CompileRunGpp()<CR>
+func! CompileRunGpp()
+exec "w"
+exec "!g++ % -o %<"
+exec "! ./%<"
+endfunc
